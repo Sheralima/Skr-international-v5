@@ -54,6 +54,47 @@ Dashboard
 
 <li class="nav-item">
 <a class="nav-link" href="users.html">
+  function createChart(users, messages){
+
+    const ctx = document.getElementById("dashboardChart");
+
+    new Chart(ctx, {
+
+        type: "bar",
+
+        data: {
+
+            labels: ["Users", "Messages"],
+
+            datasets: [{
+
+                label: "Website Statistics",
+
+                data: [users, messages]
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
 Users
 </a>
 </li>
