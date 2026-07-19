@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings | SKR INTERNATIONAL</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-dark bg-primary">
+
+<div class="container">
+
+<a href="dashboard.html" class="navbar-brand fw-bold">
+
+<i class="bi bi-speedometer2 me-2"></i>
+
+SKR INTERNATIONAL Admin
+
+</a>
+
+<button id="logoutBtn" class="btn btn-warning">
+
+<i class="bi bi-box-arrow-right"></i>
+
+Logout
+
+</button>
+
+</div>
+
+</nav>
+
+<!-- Settings -->
+
+<div class="container py-5">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+
+<h3 class="mb-0">
+
+<i class="bi bi-gear-fill"></i>
+
+Website Settings
+
+</h3>
+
+</div>
+
+<div class="card-body">
+
+<form id="settingsForm">
+
+<div class="mb-3">
+
+<label class="form-label">Company Name</label>
+
+<input
+type="text"
+id="companyName"
+class="form-control"
+placeholder="SKR INTERNATIONAL">
+
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">Company Email</label>
+
+<input
+type="email"
+id="companyEmail"
+class="form-control"
+placeholder="info@skrinternational.com">
+
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">Phone Number</label>
+
+<input
+type="text"
+id="companyPhone"
+class="form-control"
+placeholder="+92 300 1234567">
+
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">Address</label>
+
+<textarea
+id="companyAddress"
+class="form-control"
+rows="4"
+placeholder="Korangi Industrial Area, Karachi"></textarea>
+
+</div>
+
+<button
+type="submit"
+class="btn btn-success">
+
+<i class="bi bi-save-fill"></i>
+
+Save Settings
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+  <footer class="bg-dark text-white text-center py-3">
+
+<div class="container">
+
+<p class="mb-0">
+© 2026 SKR INTERNATIONAL
+</p>
+
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import {
+onAuthStateChanged,
+signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+import {
+doc,
+getDoc,
+setDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const form = document.getElementById("settingsForm");
+
+const settingsRef = doc(db, "settings", "company");
+
+// Login Check
+onAuthStateChanged(auth, async(user)=>{
+
+    if(!user){
+
+        window.location.href="login.html";
+        return;
+
+    }
+
+    // Load Existing Settings
+    const snap = await getDoc(settingsRef);
+
+    if(snap.exists()){
+
+        const data = snap.data();
+
+        document.getElementById("companyName").value = data.companyName || "";
+
+        document.getElementById("companyEmail").value = data.companyEmail || "";
+
+        document.getElementById("companyPhone").value = data.companyPhone || "";
+
+        document.getElementById("companyAddress").value = data.companyAddress || "";
+
+    }
+
+});
+
+// Save Settings
+form.addEventListener("submit", async(e)=>{
+
+    e.preventDefault();
+
+    await setDoc(settingsRef,{
+
+        companyName: document.getElementById("companyName").value,
+
+        companyEmail: document.getElementById("companyEmail").value,
+
+        companyPhone: document.getElementById("companyPhone").value,
+
+        companyAddress: document.getElementById("companyAddress").value,
+
+        updatedAt: new Date()
+
+    });
+
+    alert("Settings saved successfully.");
+
+});
+
+// Logout
+document.getElementById("logoutBtn").addEventListener("click", async()=>{
+
+    await signOut(auth);
+
+    window.location.href="login.html";
+
+});
+
+</script>
+
+</body>
+</html>
