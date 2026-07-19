@@ -45,7 +45,32 @@ function animateCounter(id, target) {
 }
 
 window.addEventListener("load", () => {
+{
 
+    if (window.scrollY > 300) {
+
+        topBtn.style.display = "block";
+
+    } else {
+
+        topBtn.style.display = "none";
+
+    }
+
+});
+
+
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
     animateCounter("clientsCounter", 500);
     animateCounter("projectsCounter", 120);
     animateCounter("countriesCounter", 15);
@@ -71,7 +96,7 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.2
 });
 
-document.querySelectorAll(".fade-up").forEach(el => {
+forEach(el => {
     observer.observe(el);
 });
 
