@@ -240,7 +240,15 @@ margin-bottom:15px;
 /* STATISTICS */
 
 .bg-primary h2{
-font-size:
+font-size:40px;
+font-weight:800;
+color:#fff;
+}
+
+.bg-primary p{
+color:#fff;
+font-weight:500;
+}
 /* ==========================================
    SKR INTERNATIONAL V5
    Professional Style.css - Part 3
