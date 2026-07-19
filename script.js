@@ -155,5 +155,39 @@ topBtn.style.fontSize = "22px";
 topBtn.style.cursor = "pointer";
 topBtn.style.display = "none";
 topBtn.style.zIndex = "9999";
+// Animated Counter
+window.addEventListener("load", () => {
 
-window.addEventListener("scroll", ()
+    animateCounter("clientsCounter", 500);
+    animateCounter("projectsCounter", 120);
+    animateCounter("countriesCounter", 15);
+    animateCounter("experienceCounter", 10);
+
+});
+
+// Observe fade-up elements
+document.querySelectorAll(".fade-up").forEach(el => {
+    observer.observe(el);
+});
+
+// Show / Hide Back To Top Button
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 300) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+
+});
+
+// Scroll to top
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
