@@ -382,3 +382,126 @@ transition:.3s;
 transform:translateY(-8px);
 box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
+/* ==========================================
+   SKR INTERNATIONAL V5
+   Professional Style.css - Part 4
+==========================================*/
+
+/* LOGIN & REGISTER */
+
+.auth-section{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#0d6efd,#084298);
+padding:40px 15px;
+}
+
+.auth-card{
+max-width:450px;
+width:100%;
+background:#fff;
+padding:35px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.auth-card h2{
+text-align:center;
+margin-bottom:25px;
+font-weight:700;
+}
+
+.auth-card .form-control{
+margin-bottom:15px;
+}
+
+.auth-card .btn{
+width:100%;
+}
+
+
+/* DASHBOARD */
+
+.dashboard-card{
+background:#fff;
+border-radius:16px;
+padding:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.dashboard-card:hover{
+transform:translateY(-8px);
+}
+
+.dashboard-card i{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.dashboard-card h3{
+font-size:32px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+
+/* TABLES */
+
+.table{
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+}
+
+.table thead{
+background:#0d6efd;
+color:#fff;
+}
+
+.table th,
+.table td{
+vertical-align:middle;
+padding:15px;
+}
+
+
+/* BADGES */
+
+.badge{
+padding:8px 12px;
+border-radius:20px;
+}
+
+
+/* ALERTS */
+
+.alert{
+border-radius:12px;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes fadeInUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.animate-up{
+animation:fadeInUp .8s ease;
+}
+
+
+/* RESPONSIVE */
