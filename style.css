@@ -1,1 +1,171 @@
+/* ==========================================
+   SKR INTERNATIONAL V5
+   Professional Style.css - Part 1
+========================================== */
 
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+/* Root Colors */
+
+:root{
+
+--primary:#0d6efd;
+--secondary:#0b5ed7;
+--dark:#212529;
+--light:#f8f9fa;
+--white:#ffffff;
+--text:#444;
+--success:#198754;
+--warning:#ffc107;
+--danger:#dc3545;
+
+--shadow:0 10px 30px rgba(0,0,0,.10);
+--radius:15px;
+
+}
+
+/* Body */
+
+body{
+
+font-family:'Poppins',sans-serif;
+background:var(--light);
+color:var(--text);
+line-height:1.7;
+overflow-x:hidden;
+
+}
+
+/* Images */
+
+img{
+
+max-width:100%;
+display:block;
+
+}
+
+/* Links */
+
+a{
+
+text-decoration:none;
+transition:.3s;
+
+}
+
+/* Section */
+
+section{
+
+padding:80px 0;
+
+}
+
+/* Container */
+
+.container{
+
+max-width:1200px;
+
+}
+
+/* Heading */
+
+h1,h2,h3,h4,h5,h6{
+
+font-weight:700;
+color:var(--dark);
+
+}
+
+p{
+
+color:#666;
+
+}
+
+/* Buttons */
+
+.btn{
+
+border-radius:50px;
+padding:12px 30px;
+font-weight:600;
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* Header */
+
+header{
+
+background:linear-gradient(135deg,#0d6efd,#084298);
+color:#fff;
+
+}
+
+header h1{
+
+font-size:42px;
+font-weight:800;
+
+}
+
+header p{
+
+color:#fff;
+
+}
+
+/* Navbar */
+
+.navbar{
+
+padding:15px 0;
+box-shadow:var(--shadow);
+
+}
+
+.navbar-brand{
+
+font-size:24px;
+font-weight:700;
+
+}
+
+.nav-link{
+
+color:#fff !important;
+margin-left:15px;
+font-weight:500;
+
+}
+
+.nav-link:hover{
+
+color:var(--warning)!important;
+
+}
+
+.navbar .btn{
+
+margin-left:10px;
+
+}
