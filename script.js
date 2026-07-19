@@ -95,8 +95,7 @@ const observer = new IntersectionObserver((entries) => {
 }, {
     threshold: 0.2
 });
-
-forEach(el => {
+document.querySelectorAll(".fade-up").forEach(el => {
     observer.observe(el);
 });
 
