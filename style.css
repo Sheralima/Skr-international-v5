@@ -513,3 +513,26 @@ animation:fadeInUp .8s ease;
 
 
 /* RESPONSIVE */
+@media(max-width:768px){
+
+header h1{
+font-size:32px;
+}
+
+.hero-image{
+height:450px;
+}
+
+.carousel-caption h1{
+font-size:2rem;
+}
+
+section{
+padding:50px 0;
+}
+
+.nav-link{
+margin-left:0;
+}
+
+}
